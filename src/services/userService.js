@@ -1,14 +1,10 @@
-import Boom from '@hapi/boom';
-
-import User from '../models/user';
-
 /**
  * Get all users.
  *
  * @returns {Promise}
  */
 export function getAllUsers() {
-  return User.fetchAll();
+  return [];
 }
 
 /**
@@ -18,12 +14,7 @@ export function getAllUsers() {
  * @returns {Promise}
  */
 export function getUser(id) {
-  return new User({ id })
-    .fetch()
-    .then(user => user)
-    .catch(User.NotFoundError, () => {
-      throw Boom.notFound('User not found');
-    });
+  return {};
 }
 
 /**
@@ -33,7 +24,7 @@ export function getUser(id) {
  * @returns {Promise}
  */
 export function createUser(user) {
-  return new User({ name: user.name }).save();
+  return {};
 }
 
 /**
@@ -44,7 +35,7 @@ export function createUser(user) {
  * @returns {Promise}
  */
 export function updateUser(id, user) {
-  return new User({ id }).save({ name: user.name });
+  return {};
 }
 
 /**
@@ -54,5 +45,5 @@ export function updateUser(id, user) {
  * @returns {Promise}
  */
 export function deleteUser(id) {
-  return new User({ id }).fetch().then(user => user.destroy());
+  return {};
 }
